@@ -1,6 +1,6 @@
 import BaseLayout from "../components/layouts/BaseLayout";
 import { withRouter } from "next/router";
-import Link from "next/link";
+import {Container} from 'reactstrap'
 import axios from "axios";
 
 import "../styles/style.scss";
@@ -9,12 +9,12 @@ const Post = props => {
   // console.log(props);
   return (
     <BaseLayout>
-      <div>
+      <Container>
         <h1 className="title">Post Page</h1>
         <h3>{props.post.title}</h3>
         <p>{props.post.body}</p>
         <h3>{props.router.query.id}</h3>
-      </div>
+      </Container>
     </BaseLayout>
   );
 };
