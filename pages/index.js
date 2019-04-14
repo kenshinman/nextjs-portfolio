@@ -1,5 +1,5 @@
 import BaseLayout from "../components/layouts/BaseLayout";
-import Link from "next/link";
+import { Link } from "../routes";
 import axios from "axios";
 
 import "../styles/style.scss";
@@ -9,7 +9,7 @@ const Index = ({ posts, name }) => {
     return posts.map(post => {
       return (
         <li key={post.id}>
-          <Link as={`/post/${post.id}`} href={`/post?id=${post.id}`}>
+          <Link route={`/post/${post.id}`}>
             <a>{post.title}</a>
           </Link>
         </li>

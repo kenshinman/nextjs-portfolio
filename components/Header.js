@@ -1,17 +1,17 @@
-import Link from "next/link";
+import { Link } from "../routes";
 
 const Header = () => (
   <nav>
-    <Link href="/">
+    <Link route="/">
       <a>Home</a>
     </Link>
-    <Link href="/about">
+    <Link route="/about">
       <a>About</a>
     </Link>
-    <Link href="/cv">
+    <Link route="/cv">
       <a>CV</a>
     </Link>
-    <Link href="/portfolio">
+    <Link route="/portfolio">
       <a>Portfolio</a>
     </Link>
   </nav>
