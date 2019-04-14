@@ -2,7 +2,8 @@ import BaseLayout from "../components/layouts/BaseLayout";
 import { Link } from "../routes";
 import axios from "axios";
 
-import "../styles/style.scss";
+import {Container, Row, Col} from 'reactstrap'
+
 
 const Index = ({ posts, name }) => {
   const renderPosts = () => {
@@ -18,12 +19,12 @@ const Index = ({ posts, name }) => {
   };
   return (
     <BaseLayout>
-      <div>
+      <Container>
         <h1 className="title">Welcome Home {name}</h1>
         <h3>Posts</h3>
 
         <ul>{renderPosts()}</ul>
-      </div>
+      </Container>
     </BaseLayout>
   );
 };
