@@ -1,4 +1,5 @@
 @import "./shared/fonts";
+@import "./shared/header";
 
 //PAGES
 @import "./index";
@@ -15,4 +16,16 @@ body {
   font-weight: bold;
   letter-spacing: 2px;
   color: white;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.base-page {
+  padding-top: 150px;
+}
+
+.clickable {
+  cursor: pointer;
 }

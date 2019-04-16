@@ -6,13 +6,36 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
 } from "reactstrap";
+import auth0Client from "../services/Auth0";
+
+const Login = () => {
+  return (
+    <Link>
+      <span
+        onClick={auth0Client.login}
+        className="nav-link port-navbar-link clickable">
+        Login
+      </span>
+    </Link>
+  );
+};
+const Logout = () => {
+  return (
+    <Link>
+      <span
+        onClick={auth0Client.logout}
+        className="nav-link port-navbar-link clickable">
+        Logout
+      </span>
+    </Link>
+  );
+};
 
 const BsNavlink = ({ route, text }) => (
   <Link route={route}>
-    <a className="nav-link">{text}</a>
+    <a className="nav-link port-navbar-link">{text}</a>
   </Link>
 );
 
@@ -33,28 +56,42 @@ export default class Example extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">
+        <Navbar
+          className="port-navbar port-default absolute"
+          color="transparent"
+          light
+          expand="md">
+          <NavbarBrand className="port-navbar-brand" href="/">
             <strong>Kehinde</strong> Orilogbon
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
+              <NavItem className="port-navbar-item">
                 <BsNavlink text="Home" route="/" />
               </NavItem>
-              <NavItem>
+              <NavItem className="port-navbar-item">
                 <BsNavlink text="About" route="/about" />
               </NavItem>
-              <NavItem>
+              <NavItem className="port-navbar-item">
                 <BsNavlink text="Portfolio" route="/portfolio" />
               </NavItem>
-              <NavItem>
+              <NavItem className="port-navbar-item">
                 <BsNavlink text="Blogs" route="/blogs" />
               </NavItem>
-              <NavItem>
+              <NavItem className="port-navbar-item">
                 <BsNavlink text="CV" route="/cv" />
               </NavItem>
+              {!auth0Client.isAuthenticated() && (
+                <NavItem className="port-navbar-item">
+                  <Login />
+                </NavItem>
+              )}
+              {auth0Client.isAuthenticated() && (
+                <NavItem className="port-navbar-item">
+                  <Logout />
+                </NavItem>
+              )}
             </Nav>
           </Collapse>
         </Navbar>

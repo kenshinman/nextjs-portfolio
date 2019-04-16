@@ -4,6 +4,7 @@ import axios from "axios";
 import Typed from "react-typed";
 
 import { Container, Row, Col } from "reactstrap";
+import BasePage from "../components/BasePage";
 
 class Index extends React.Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class Index extends React.Component {
   }
 
   render() {
-    const { className, children } = this.props;
+    const { isAuthenticated } = this.props.auth;
+    console.log(isAuthenticated);
     return (
       <BaseLayout className="cover">
         <div className="main-section">
@@ -28,7 +30,7 @@ class Index extends React.Component {
             <img src="/static/images/background-index.png" />
           </div>
 
-          <Container>
+          <BasePage>
             <Row>
               <Col md="6">
                 <div className="hero-section">
@@ -83,22 +85,16 @@ class Index extends React.Component {
                 </div>
               </Col>
             </Row>
-          </Container>
+          </BasePage>
         </div>
       </BaseLayout>
     );
   }
 }
 
-Index.getInitialProps = async () => {
-  let data = {};
-  try {
-    let posts = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
-    data.posts = posts.data.splice(0, 10);
-  } catch (error) {
-    data.error = "something went swong";
-  }
-  return data;
+Index.getInitialProps = ({ req }) => {
+  // console.log(req.headers.cookie.split(";"))
+  return {};
 };
 
 export default Index;

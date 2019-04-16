@@ -1,11 +1,12 @@
 import BaseLayout from "../components/layouts/BaseLayout";
+import BasePage from "../components/BasePage";
 
 const Portfolio = props => {
   return (
     <BaseLayout>
-      <div>
+      <BasePage>
         <h1>Welcome Portfolio</h1>
-      </div>
+      </BasePage>
     </BaseLayout>
   );
 };

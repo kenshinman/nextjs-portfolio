@@ -3,18 +3,18 @@ import { withRouter } from "next/router";
 import {Container} from 'reactstrap'
 import axios from "axios";
 
-import "../styles/style.scss";
+import BasePage from "../components/BasePage";
 
 const Post = props => {
   // console.log(props);
   return (
     <BaseLayout>
-      <Container>
+      <BasePage>
         <h1 className="title">Post Page</h1>
         <h3>{props.post.title}</h3>
         <p>{props.post.body}</p>
         <h3>{props.router.query.id}</h3>
-      </Container>
+      </BasePage>
     </BaseLayout>
   );
 };
