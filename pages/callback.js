@@ -18,7 +18,7 @@ const Callback = props => {
     handleAuth();
   }, []);
   return (
-    <BaseLayout>
+    <BaseLayout {...props.auth}>
       <BasePage>
         <h1>Verifying login...</h1>
       </BasePage>

@@ -3,7 +3,7 @@ import BasePage from "../components/BasePage";
 
 const Portfolio = props => {
   return (
-    <BaseLayout>
+    <BaseLayout {...props.auth}>
       <BasePage>
         <h1>Welcome Portfolio</h1>
       </BasePage>

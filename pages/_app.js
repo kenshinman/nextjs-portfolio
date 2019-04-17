@@ -17,13 +17,13 @@ class MyApp extends App {
     }
 
     const auth = { isAuthenticated };
-    pageProps.auth = auth;
+
     return { pageProps, auth };
   }
 
   render() {
     const { Component, pageProps, auth } = this.props;
-
+    console.log("auth", auth);
     return (
       <Container>
         <Component {...pageProps} auth={auth} />

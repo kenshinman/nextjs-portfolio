@@ -3,11 +3,11 @@ import BasePage from "../components/BasePage";
 
 const Cv = props => {
   return (
-    <BaseLayout>
+    <BaseLayou {...props.auth} t>
       <BasePage>
         <h1>Welcome CV</h1>
       </BasePage>
-    </BaseLayout>
+    </BaseLayou>
   );
 };
 

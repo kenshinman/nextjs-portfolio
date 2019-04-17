@@ -39,7 +39,7 @@ const BsNavlink = ({ route, text }) => (
   </Link>
 );
 
-export default class Example extends React.Component {
+export default class Header extends React.Component {
   constructor(props) {
     super(props);
 
@@ -54,6 +54,7 @@ export default class Example extends React.Component {
     });
   }
   render() {
+    console.log(this.props);
     return (
       <div>
         <Navbar

@@ -14,7 +14,7 @@ const Blogs = props => {
     });
   };
   return (
-    <BaseLayout>
+    <BaseLayout {...props.auth}>
       <BasePage>
         <h2>Blog Posts</h2>
         <ul>{props.posts && renderPosts()}</ul>

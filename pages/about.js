@@ -4,7 +4,7 @@ import BasePage from "../components/BasePage";
 
 const About = props => {
   return (
-    <BaseLayout>
+    <BaseLayout {...this.props.auth}>
       <BasePage>
         <h1>Welcome About</h1>
         <h3>Sub titles</h3>
