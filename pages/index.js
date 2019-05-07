@@ -21,8 +21,8 @@ class Index extends React.Component {
   }
 
   render() {
-    const { isAuthenticated } = this.props.auth;
-    console.log(isAuthenticated);
+    const { isAuthenticated, user } = this.props.auth;
+
     return (
       <BaseLayout className="cover" {...this.props.auth}>
         <div className="main-section">
@@ -37,6 +37,7 @@ class Index extends React.Component {
                   <div className={`flipper`}>
                     <div className="back">
                       <div className="hero-section-content">
+                        {isAuthenticated && <h3>{user.name}</h3>}
                         <h2> Full Stack Web Developer </h2>
                         <div className="hero-section-content-intro">
                           Have a look at my portfolio and job history.

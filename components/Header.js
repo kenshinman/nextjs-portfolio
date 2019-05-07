@@ -21,6 +21,7 @@ const Login = () => {
     </Link>
   );
 };
+
 const Logout = () => {
   return (
     <Link>
@@ -54,7 +55,7 @@ export default class Header extends React.Component {
     });
   }
   render() {
-    console.log(this.props);
+    const { isAuthenticated, user } = this.props;
     return (
       <div>
         <Navbar
@@ -83,14 +84,25 @@ export default class Header extends React.Component {
               <NavItem className="port-navbar-item">
                 <BsNavlink text="CV" route="/cv" />
               </NavItem>
-              {!auth0Client.isAuthenticated() && (
+              {!isAuthenticated && (
                 <NavItem className="port-navbar-item">
                   <Login />
                 </NavItem>
               )}
-              {auth0Client.isAuthenticated() && (
+              {isAuthenticated && (
                 <NavItem className="port-navbar-item">
                   <Logout />
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem className="port-navbar-item">
+                  {/* <img
+                    src={user.picture}
+                    className="rounded-circle"
+                    style={{ height: 30, width: 30, display: "inline-block" }}
+                    alt=""
+                  /> */}
+                  <span className="nav-link port-navbar-link">{user.name}</span>
                 </NavItem>
               )}
             </Nav>
